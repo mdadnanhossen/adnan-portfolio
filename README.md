@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Md Adnan Hossen — Developer Portfolio
 
-## Getting Started
+A modern, responsive personal developer portfolio built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **React Icons**.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 + Custom CSS Variables
+- **Icons**: React Icons
+- **Runtime**: Node.js 22
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # Root layout with SEO metadata
+│   ├── page.tsx          # Main page (assembles all sections)
+│   └── globals.css       # Design tokens + global styles
+└── components/
+    ├── Navbar.tsx         # Sticky responsive navbar + mobile menu
+    ├── Hero.tsx           # Hero with typewriter effect
+    ├── About.tsx          # About me section
+    ├── Skills.tsx         # Skills by category
+    ├── Projects.tsx       # Featured project cards
+    ├── Education.tsx      # University education
+    ├── WhatIDo.tsx        # Focus area cards
+    ├── Contact.tsx        # Contact info + social links
+    ├── Footer.tsx         # Footer with copyright
+    └── ScrollToTop.tsx    # Floating scroll-to-top button
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ▶️ Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 1. Navigate into the project folder
+cd e:\protfolio\portfolio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 2. Install dependencies (already done)
+npm install
 
-## Learn More
+# 3. Start the development server
+npm run dev
+# → Open http://localhost:3000 in your browser
 
-To learn more about Next.js, take a look at the following resources:
+# 4. Build for production
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 5. Start the production server
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✏️ Customization
 
-## Deploy on Vercel
+| What to change | Where |
+|---|---|
+| Personal info, bio, social links | `Hero.tsx`, `About.tsx`, `Contact.tsx` |
+| Projects | `Projects.tsx` — add to the `PROJECTS` array |
+| Skills | `Skills.tsx` — add/remove skills from groups |
+| Colors & fonts | `globals.css` CSS variables in `:root` |
+| SEO metadata | `app/layout.tsx` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Things to Add
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] **Profile photo** — add your photo to `public/` and use `<Image>` in the Hero section
+- [ ] **Email address** — add your email to the Contact section links array
+- [ ] **More projects** — add additional projects to `Projects.tsx` as you build them
+- [ ] **Project GitHub repos** — add `sourceUrl` to projects once repos are public
+- [ ] **Resume/CV download** — add a PDF to `public/` and link it from the Hero/About section
