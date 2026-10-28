@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+
 import { FaGithub, FaLinkedin, FaArrowDown } from "react-icons/fa";
 
 const ROLES = [
@@ -10,21 +11,27 @@ const ROLES = [
 ];
 
 export default function Hero() {
-  const [roleIdx, setRoleIdx]   = useState(0);
+  const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState("");
-  const [deleting, setDeleting]   = useState(false);
-  const [pause, setPause]         = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [pause, setPause] = useState(false);
 
   /* Typewriter effect */
   useEffect(() => {
     const role = ROLES[roleIdx];
     if (pause) {
-      const t = setTimeout(() => { setPause(false); setDeleting(true); }, 1800);
+      const t = setTimeout(() => {
+        setPause(false);
+        setDeleting(true);
+      }, 1800);
       return () => clearTimeout(t);
     }
     if (!deleting) {
       if (displayed.length < role.length) {
-        const t = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 60);
+        const t = setTimeout(
+          () => setDisplayed(role.slice(0, displayed.length + 1)),
+          60,
+        );
         return () => clearTimeout(t);
       } else {
         setPause(true);
@@ -96,6 +103,23 @@ export default function Hero() {
         >
           👋 Available for opportunities
         </span>
+        {/* Profile Photo */}
+        {/* Profile Photo */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1.5rem",
+    position: "relative",
+    zIndex: 10,
+  }}
+>
+  <img
+  src="/profile.jpeg"
+  alt="Md Adnan Hossen"
+  className="w-64 h-64 rounded-full object-cover"
+/>
+</div>
 
         {/* Name */}
         <h1
@@ -109,8 +133,7 @@ export default function Hero() {
             color: "var(--text)",
           }}
         >
-          Md Adnan{" "}
-          <span className="gradient-text">Hossen</span>
+          Md Adnan <span className="gradient-text">Hossen</span>
         </h1>
 
         {/* Typewriter role */}
@@ -161,6 +184,13 @@ export default function Hero() {
           <a href="#contact" className="btn-outline">
             Contact Me
           </a>
+          {/* <a
+            href="/resume.pdf"
+            download="Md-Adnan-Hossen-Resume.pdf"
+            className="btn-outline"
+          >
+            Download Resume
+          </a> */}
         </div>
 
         {/* Social Icons */}
@@ -180,11 +210,14 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.color = "var(--text)";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+              (e.currentTarget as HTMLElement).style.transform =
+                "translateY(-2px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              (e.currentTarget as HTMLElement).style.color =
+                "var(--text-muted)";
+              (e.currentTarget as HTMLElement).style.transform =
+                "translateY(0)";
             }}
           >
             <FaGithub size={26} />
@@ -201,11 +234,14 @@ export default function Hero() {
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.color = "#0a66c2";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+              (e.currentTarget as HTMLElement).style.transform =
+                "translateY(-2px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              (e.currentTarget as HTMLElement).style.color =
+                "var(--text-muted)";
+              (e.currentTarget as HTMLElement).style.transform =
+                "translateY(0)";
             }}
           >
             <FaLinkedin size={26} />
@@ -243,4 +279,3 @@ export default function Hero() {
     </section>
   );
 }
-
